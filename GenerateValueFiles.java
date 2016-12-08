@@ -24,7 +24,56 @@ public class GenerateValueFiles {
      */
     private final static String VALUE_TEMPLATE = "values-{0}x{1}";
 
-    private static final String SUPPORT_DIMESION = "320,480;480,800;480,854;540,960;600,1024;720,1184;720,1196;720,1280;768,1024;800,1280;1080,1812;1080,1920;1440,2560;";
+    // private static final String SUPPORT_DIMESION = "320,480;480,800;480,854;540,960;600,1024;720,1184;720,1196;720,1280;768,1024;800,1280;1080,1812;1080,1920;1440,2560;";
+	
+	// 最多是1080*1920的尺寸
+	private static final String SUPPORT_DIMESION = "" // 参考自：https://material.io/devices/
+												 //+ "272,340;"
+												// + "280,280;"
+												
+												// + "312,390;"
+												// + "320,290;"
+												 //+ "320,320;"
+												// + "320,325;"
+												// + "320,330;"
+												 + "320,480;" // iPhone
+												 + "480,800;" // Additional
+												 + "480,854;" // Android One
+												 + "540,960;" // Additional
+												 + "600,1024;" // Additional
+												 + "640,960;" // iPhone 4
+												 + "640,1136;" // iPhone 5
+												 + "720,1184;" // Additional
+												 + "720,1196;" // Additional
+												 + "720,1280;" // Moto G
+												 
+												 + "750,1334;" // iPhone 6
+												 + "768,1024;" // iPad
+												 + "768,1280;" // Nexus 4
+												 + "800,1280;" // Nexus 7 ('12)、Samsung Galaxy Tab
+												 + "1080,1800;" // 魅族MX3
+												 + "1080,1920;" // Google Pixel、HTC One M8、HTC One M9、iPhone 6 Plus、LG G2
+												 
+												 + "1200,1920;" // Nexus7 ('13)
+												// + "1366,768;"
+												// + "1440,900;"
+												 + "1440,2560;" // Google Pixel XL
+												 + "1536,2048;" // iPad Mini Retina
+												 + "1600,2560;" // Dell Venue 8
+												// + "1920,1080;" 
+												// + "1920,1200;" // Sony Xperia Z3 Tablet
+												// + "2048,1536;" // Nexus 9
+												// + "2160,1440;"
+												// + "2304,1440;"
+												// + "2560,1440;"
+												// + "2560,1600;"
+												// + "2560,1700;"
+												// + "2732,2048;" // iPad Pro
+												// + "2736,1824;"
+												// + "2880,1800;"
+												// + "3000,2000;"
+												// + "5120,2880;"
+												;
 
     private String supportStr = SUPPORT_DIMESION;
 
