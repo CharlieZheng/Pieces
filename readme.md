@@ -39,3 +39,31 @@ int D=0000 1000
 
 ### 写在最后
 当然如果某个属性有多个状态则不能用这种表示法
+
+# 在二进制数某个位置插入0
+
+```
+@Test
+public void test3() {
+    final int index = 80;
+    long mData = Long.MAX_VALUE - 79;
+    String originalMData = Long.toBinaryString(mData);
+    final long mask = (1L << index) - 1;
+    final long before = mData & mask;
+    final long after = ((mData & ~mask)) << 1;
+    mData = before | after;
+    System.out.print(String.format("%-8s%80s\n%-8s%80s\n%-8s%80s\n%-8s%80s\n%-8s%80s\n%-8s%80s\n", "mask: ", Long.toBinaryString(mask), "~mask: ", Long.toBinaryString(~mask), "before: ", Long.toBinaryString(before), "after: ", Long.toBinaryString(after), "mData1: ", originalMData, "mData2: ", Long.toBinaryString(mData)));
+}
+```
+
+打印情况（从右边数起第 (index=80) % 64 = 16 的位置插入了一个0）：
+
+```
+mask:                                                                   1111111111111111
+~mask:                  1111111111111111111111111111111111111111111111110000000000000000
+before:                                                                 1111111110110000
+after:                  1111111111111111111111111111111111111111111111100000000000000000
+mData1:                  111111111111111111111111111111111111111111111111111111110110000
+mData2:                 1111111111111111111111111111111111111111111111101111111110110000
+```
+
