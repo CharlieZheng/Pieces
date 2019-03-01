@@ -39,3 +39,50 @@ int D=0000 1000
 
 ### 写在最后
 当然如果某个属性有多个状态则不能用这种表示法
+
+# 实例
+```
+@Test
+    public void addAndRemove() {
+        int flags = 0;
+        int flag1 = 0b0000001001;
+        int flag2 = 0b1100000100;
+        int flag3 = 0b0011100010;
+        flags |= flag1;
+        System.out.println("新增 flag1\t" + Integer.toBinaryString(flags));
+        flags |= flag2;
+        System.out.println("新增 flag2\t" + Integer.toBinaryString(flags));
+        flags |= flag3;
+        System.out.println("新增 flag3\t" + Integer.toBinaryString(flags));
+        flags &= ~flag1;
+        flags &= ~flag2;
+        flags &= ~flag3;
+        System.out.println("移除 flag1 flag2 flag3\t" + Integer.toBinaryString(flags));
+    }
+
+    @Test
+    public void addAndRemove2() {
+        int flags = 0;
+        int flag1 = 0b0000001001;
+        int flag2 = 0b1100000100;
+        int flag3 = 0b0011100010;
+        flags |= flag1;
+        System.out.println("新增 flag1\t" + Integer.toBinaryString(flags));
+        flags |= flag2;
+        System.out.println("新增 flag2\t" + Integer.toBinaryString(flags));
+        flags |= flag3;
+        System.out.println("新增 flag3\t" + Integer.toBinaryString(flags));
+        flags &= ~flag1 & ~flag2 & ~flag3;
+        System.out.println("移除 flag1 flag2 flag3\t" + Integer.toBinaryString(flags));
+    }
+```
+上面两个方法输出的结果是一样的
+```
+新增 flag1	1001
+新增 flag2	1100001101
+新增 flag3	1111101111
+移除 flag1 flag2 flag3	0
+```
+总结
+ - flags |= flag1：是往 flags 加 flag1
+ - flags &= ~flag1：是从 flags 里移除 flag1
